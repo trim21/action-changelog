@@ -116,18 +116,19 @@ jobs:
 
 ## Inputs
 
-| Field | Description | Required | Default |
-|-------|-------------|:--------:|---------|
-| `token` | Your GitHub token (e.g. `${{ github.token }}`) | :white_check_mark: | |
-| `tag` | The latest tag which triggered the job. (e.g. `${{ github.ref_name }}`) | :white_check_mark: <br> *(unless using `fromTag` and `toTag`)* | |
-| `fromTag` | The tag from which the changelog is to be determined (latest) | :white_check_mark: <br> *(unless using `tag`)* | |
-| `toTag` | The tag up to which the changelog is to be determined (oldest) | :white_check_mark: <br> *(unless using `tag`)* | |
-| `excludeTypes` | A comma-separated list of commit types you want to exclude from the changelog (e.g. `doc,chore,perf`) | :x: | `build,docs,other,style` |
-| `writeToFile` | Should CHANGELOG.md be updated with latest changelog | :x: | `true` |
-| `includeRefIssues` | Should the changelog include the issues referenced for each PR. | :x: | `true` |
-| `useGitmojis` | Should type headers be prepended with their related gitmoji | :x: | `true` |
-| `includeInvalidCommits` | Whether to include commits that don't respect the Conventional Commits format | :x: | `false` |
-| `reverseOrder` | List commits in reverse order (from newer to older) instead of the default (older to newer). | :x: | `false` |
+| Field                   | Description                                                                                                                                              | Required | Default                  |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------------------------|
+| `token`                 | Your GitHub token (e.g. `${{ github.token }}`)                                                                                                           | :white_check_mark: |                          |
+| `tag`                   | The latest tag which triggered the job. (e.g. `${{ github.ref_name }}`)                                                                                  | :white_check_mark: <br> *(unless using `fromTag` and `toTag`)* |                          |
+| `fromTag`               | The tag from which the changelog is to be determined (latest)                                                                                            | :white_check_mark: <br> *(unless using `tag`)* |                          |
+| `toTag`                 | The tag up to which the changelog is to be determined (oldest)                                                                                           | :white_check_mark: <br> *(unless using `tag`)* |                          |
+| `excludeTypes`          | A comma-separated list of commit types you want to exclude from the changelog (e.g. `doc,chore,perf`)                                                    | :x: | `build,docs,other,style` |
+| `includeTypes`          | A comma-separated list of commit types you want to include, empty string to include all types except excluded by `excludeTypes` (e.g. `feat,fix,revert`) | :x: | ``                       |
+| `writeToFile`           | Should CHANGELOG.md be updated with latest changelog                                                                                                     | :x: | `true`                   |
+| `includeRefIssues`      | Should the changelog include the issues referenced for each PR.                                                                                          | :x: | `true`                   |
+| `useGitmojis`           | Should type headers be prepended with their related gitmoji                                                                                              | :x: | `true`                   |
+| `includeInvalidCommits` | Whether to include commits that don't respect the Conventional Commits format                                                                            | :x: | `false`                  |
+| `reverseOrder`          | List commits in reverse order (from newer to older) instead of the default (older to newer).                                                             | :x: | `false`                  |
 
 ## Outputs
 

@@ -68,6 +68,7 @@ async function main () {
   const fromTag = core.getInput('fromTag')
   const toTag = core.getInput('toTag')
   const excludeTypes = (core.getInput('excludeTypes') || '').split(',').map(t => t.trim())
+  const includeTypes = (core.getInput('includeTypes') || '').split(',').map(t => t.trim())
   const writeToFile = core.getBooleanInput('writeToFile')
   const includeRefIssues = core.getBooleanInput('includeRefIssues')
   const useGitmojis = core.getBooleanInput('useGitmojis')
@@ -250,6 +251,11 @@ async function main () {
   }
 
   for (const type of types) {
+    if (includeTypes.length) {
+      if (_.intersection(type.types, includeTypes).length === 0) {
+        continue
+      }
+    }
     if (_.intersection(type.types, excludeTypes).length > 0) {
       continue
     }
